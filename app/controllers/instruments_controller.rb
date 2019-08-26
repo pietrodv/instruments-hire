@@ -1,7 +1,7 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:create]
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @instruments = Instrument.all
@@ -16,7 +16,7 @@ class InstrumentsController < ApplicationController
 
   def create
     @instrument = Instrument.new(instrument_params)
-    @instrument.user = @user
+    @instrument.user = current_user
     if @instrument.save
       redirect_to user_instruments_path(@user)
     else
