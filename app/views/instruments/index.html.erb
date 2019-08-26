@@ -1,2 +1,15 @@
-<h1>Instruments#index</h1>
-<p>Find me in app/views/instruments/index.html.erb</p>
+<h1 class="header">List of instruments</h1>
+
+<div class="cards mb-5">
+  <% @instruments.each do |instrument| %>
+    <%= link_to instrument_path(instrument) do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
+        <%= instrument.name %>
+      </div>
+    <% end %>
+  <% end %>
+
+
+<!-- When our instrument has a photo, we can use <%#= cl_image_path instrument.photo %> -->
+</div>
+
