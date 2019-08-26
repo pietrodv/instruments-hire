@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+User.destroy_all
+
+users = 10.times do
+  User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.email, password: Faker::Alphanumeric.alphanumeric(number: 10))
+end
+
+30.times do
+  instrument = Instrument.new(name: Faker::Music.instrument)
+  instrument.user = User.all.sample
+  instrument.save
+end
