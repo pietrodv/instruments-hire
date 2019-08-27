@@ -10,27 +10,35 @@
   <div class="row">
     <div class="details col-sm">
       <div class="title-user d-flex justify-content-between">
-        <h1 class="header"><%= @instrument.name%></h1>
+        <h1 class="header pb-2 border-bottom"><%= @instrument.name%></h1>
         <div class="d-flex flex-column justify-content-between text-center">
-          <%= image_tag photo_or_fallback(@instrument.user), class: "avatar" %>
+          <%= image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar" %>
           <%= @instrument.user.first_name %>
         </div>
       </div>
-      <p>Details: <%= @instrument.details %></p>
-      <p>Price per day: <%= @instrument.price_per_day %>€</p>
+      <div class="card-product my-4">
+        <div class="card-product-infos">
+          <h2>Details</h2>
+          <p><%= @instrument.details %></p>
+          <h2>Price per day: </h2>
+          <p><%= @instrument.price_per_day %>€</p>
+        </div>
+      </div>
     </div>
 
     <div class="booking col-sm">
       <p>Booking Form</p>
     </div>
   </div>
+
+  <% if policy(@instrument).edit? %>
+    <%= link_to "Update", edit_instrument_path(@instrument), class: "btn btn-warning" %>
+  <% end %>
+  <% if policy(@instrument).destroy? %>
+      <%= link_to "Destroy", instrument_path(@instrument), method: :delete, class: "btn btn-danger" %>
+  <% end %>
+
 </div>
 
-<% if policy(@instrument).edit? %>
-    <%= link_to "Update", edit_instrument_path(@instrument) %>
-<% end %>
-<% if policy(@instrument).destroy? %>
-    <%= link_to "Destroy", instrument_path(@instrument), method: :delete %>
-<% end %>
-<br>
+
 
