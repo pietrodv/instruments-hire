@@ -12,7 +12,7 @@
       <div class="title-user d-flex justify-content-between">
         <h1 class="header pb-2 border-bottom"><%= @instrument.name%></h1>
         <div class="d-flex flex-column justify-content-between text-center">
-          <%= image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar" %>
+          <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar" %>
           <%= @instrument.user.first_name %>
         </div>
       </div>
