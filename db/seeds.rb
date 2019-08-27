@@ -14,6 +14,7 @@ users = 10.times do
 end
 
 User.create!(first_name: 'John', last_name: 'Smith', email: 'johnsmith@lewagon.com', password: 'abcd123')
+User.create!(first_name: 'Anna', last_name: 'Smith', email: 'annasmith@lewagon.com', password: 'abcd123')
 
 30.times do
   instrument = Instrument.new(name: Faker::Music.instrument)
