@@ -1,11 +1,14 @@
 <h1><%= @instrument.name%></h1>
 <p>Details: <%= @instrument.details %></p>
 <p>Price per day: <%= @instrument.price_per_day %>€</p>
-<img src="<%= photo_or_fallback(@instrument) %>">
-  
+<img src="<%= photo_or_fallback(@instrument) %>" width= '300' height="200">
+<br>  
 <% if policy(@instrument).edit? %>
     <%= link_to "Update", edit_instrument_path(@instrument) %>
-<% end %> 
+<% end %>
 <% if policy(@instrument).destroy? %>
     <%= link_to "Destroy", instrument_path(@instrument), method: :delete %>
 <% end %>
+<br>
+<%= link_to 'back', root_path %>
+
