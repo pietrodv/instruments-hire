@@ -1,6 +1,6 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
 
   def index
     @instruments = policy_scope(Instrument).order(created_at: :DESC)
@@ -39,6 +39,11 @@ class InstrumentsController < ApplicationController
   def destroy
     @instrument.destroy
     redirect_to root_path, notice: 'Instrument was successfully deleted.'
+  end
+
+  def search
+    @instruments = policy_scope(Instrument).where('lower(name) LIKE ?', "%#{params[:query]}%").order(created_at: :DESC)
+    render :index
   end
 
   private
