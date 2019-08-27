@@ -1,6 +1,6 @@
 <h1><%= @instrument.name%></h1>
 <p>Details: <%= @instrument.details %></p>
-<p>Price per day: <%= @instrument.price_per_day %></p>
+<p>Price per day: <%= @instrument.price_per_day %>€</p>
 <img src="<%= @instrument.photo %>">
   
 <% if policy(@instrument).edit? %>
