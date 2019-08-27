@@ -14,9 +14,10 @@ users = 10.times do
 end
 
 User.create!(first_name: 'John', last_name: 'Smith', email: 'johnsmith@lewagon.com', password: 'abcd123')
+User.create!(first_name: 'Anna', last_name: 'Smith', email: 'annasmith@lewagon.com', password: 'abcd123')
 
-30.times do
-  instrument = Instrument.new(name: Faker::Music.instrument)
+15.times do
+  instrument = Instrument.new(name: Faker::Music.instrument, details: Faker::Lorem.paragraph, price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.save
 end

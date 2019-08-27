@@ -9,6 +9,7 @@ gem 'rails', '5.2.3'
 gem 'redis'
 gem 'devise'
 gem 'faker'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -16,6 +17,12 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary', '~> 1.9.1'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

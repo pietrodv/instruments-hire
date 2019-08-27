@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   # resources :user do
   #   resources :instruments, only: [:new, :create, :edit, :update]
   # end
-
   resources :instruments, except: :index
 end

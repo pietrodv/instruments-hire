@@ -1,2 +1,37 @@
-<h1>Instruments#show</h1>
-<p>Find me in app/views/instruments/show.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= photo_or_fallback(@instrument) %>');">
+  <div>
+    <%= link_to root_path, class: 'btn btn-secondary back-btn' do %>
+      <i class="fas fa-arrow-left"></i> Go back to the list
+    <% end %>
+  </div>
+</div>
+
+<div class="instrument-details-booking container mt-3">
+  <div class="row">
+    <div class="details col-sm">
+      <div class="title-user d-flex justify-content-between">
+        <h1 class="header"><%= @instrument.name%></h1>
+        <div class="d-flex flex-column justify-content-between text-center">
+          <%= image_tag photo_or_fallback(@instrument.user), class: "avatar" %>
+          <%= @instrument.user.first_name %>
+        </div>
+      </div>
+      <p>Details: <%= @instrument.details %></p>
+      <p>Price per day: <%= @instrument.price_per_day %>€</p>
+    </div>
+
+    <div class="booking col-sm">
+      <p>Booking Form</p>
+    </div>
+  </div>
+</div>
+
+<% if policy(@instrument).edit? %>
+    <%= link_to "Update", edit_instrument_path(@instrument) %>
+<% end %>
+<% if policy(@instrument).destroy? %>
+    <%= link_to "Destroy", instrument_path(@instrument), method: :delete %>
+<% end %>
+<br>
+<%= link_to 'back', root_path %>
+
