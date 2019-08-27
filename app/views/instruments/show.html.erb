@@ -1,2 +1,5 @@
-<h1>Instruments#show</h1>
-<p>Find me in app/views/instruments/show.html.erb</p>
+<h1><%= @instrument.name%></h1>
+<p>Details: <%= @instrument.details %></p>
+<p>Price per day: <%= @instrument.price_per_day %></p>
+<img src="<%= @instrument.photo %>">
+  

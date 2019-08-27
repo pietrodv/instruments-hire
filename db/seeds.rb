@@ -16,7 +16,7 @@ end
 User.create!(first_name: 'John', last_name: 'Smith', email: 'johnsmith@lewagon.com', password: 'abcd123')
 
 30.times do
-  instrument = Instrument.new(name: Faker::Music.instrument, details: Faker::Lorem.paragraphs, photo: 'https://picsum.photos/300/200', price_per_day: Faker::Number.decimal(l_digits: 2))
+  instrument = Instrument.new(name: Faker::Music.instrument, details: Faker::Lorem.paragraph, photo: 'https://picsum.photos/300/200', price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.save
 end
