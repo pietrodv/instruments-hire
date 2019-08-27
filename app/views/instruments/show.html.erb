@@ -26,14 +26,12 @@
   </div>
 </div>
 
-
-
-
-<!-- <img src="<%= photo_or_fallback(@instrument) %>"> -->
-
 <% if policy(@instrument).edit? %>
     <%= link_to "Update", edit_instrument_path(@instrument) %>
 <% end %>
 <% if policy(@instrument).destroy? %>
     <%= link_to "Destroy", instrument_path(@instrument), method: :delete %>
 <% end %>
+<br>
+<%= link_to 'back', root_path %>
+
