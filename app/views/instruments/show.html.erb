@@ -1,2 +1,11 @@
-<h1>Instruments#show</h1>
-<p>Find me in app/views/instruments/show.html.erb</p>
+<h1><%= @instrument.name%></h1>
+<p>Details: <%= @instrument.details %></p>
+<p>Price per day: <%= @instrument.price_per_day %>€</p>
+<img src="<%= @instrument.photo %>">
+  
+<% if policy(@instrument).edit? %>
+    <%= link_to "Update", edit_intrument_path(@instrument) %>
+<% end %> 
+<% if policy(@instrument).destroy? %>
+    <%= link_to "Update", intrument_path(@instrument), method: :delete %>
+<% end %>
