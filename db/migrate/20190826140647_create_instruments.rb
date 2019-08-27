@@ -5,7 +5,6 @@ class CreateInstruments < ActiveRecord::Migration[5.2]
       t.text :details
       t.string :photo
       t.float :price_per_day
-      t.string :location
       t.references :user, foreign_key: true
 
       t.timestamps
