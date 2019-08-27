@@ -1,9 +1,15 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
+  skip_after_action :verify_authorized, only: [:mine]  
 
   def index
     @instruments = policy_scope(Instrument).order(created_at: :DESC)
+  end
+
+  def mine
+    @instruments = Instrument.where(user: current_user)
+    render :index
   end
 
   def show
