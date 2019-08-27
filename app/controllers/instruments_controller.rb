@@ -3,7 +3,7 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @instruments = policy_scope(Instrument).order(:created_at)
+    @instruments = policy_scope(Instrument).order(created_at: :DESC)
   end
 
   def show
@@ -38,7 +38,7 @@ class InstrumentsController < ApplicationController
 
   def destroy
     @instrument.destroy
-    redirect_to instruments_path, notice: 'Instrument was successfully destroyed.'
+    redirect_to root_path, notice: 'Instrument was successfully deleted.'
   end
 
   private
