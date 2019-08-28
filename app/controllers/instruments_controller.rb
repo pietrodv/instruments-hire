@@ -13,6 +13,11 @@ class InstrumentsController < ApplicationController
   end
 
   def show
+    @user = @instrument.user
+    @address = @user.geocoded?
+    if @address
+      @marker = [{ lat: @user.latitude, lng: @user.longitude }]
+    end
   end
 
   def new
