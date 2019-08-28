@@ -6,6 +6,7 @@
   color: rgba(0,0,0,0.3);
   display: flex;
   justify-content: space-between;
+  margin: 0;
 }
 .footer-links {
   display: flex;
@@ -22,3 +23,13 @@
   opacity: 1;
 }
 
+.footer-copyright a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  padding: 0px 10px;
+}
+
+.footer-copyright a:hover {
+  opacity: 1;
+}
