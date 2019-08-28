@@ -10,14 +10,14 @@ require 'faker'
 User.destroy_all
 
 users = 10.times do
-  User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.email, password: Faker::Alphanumeric.alphanumeric(number: 10))
+  User.create!(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, bio: Faker::Lorem.paragraphs.join(" "), email: Faker::Internet.email, password: Faker::Alphanumeric.alphanumeric(number: 10))
 end
 
 User.create!(first_name: 'John', last_name: 'Smith', email: 'johnsmith@lewagon.com', password: 'abcd123')
 User.create!(first_name: 'Anna', last_name: 'Smith', email: 'annasmith@lewagon.com', password: 'abcd123')
 
 15.times do
-  instrument = Instrument.new(name: Faker::Music.instrument, details: Faker::Lorem.paragraph, price_per_day: Faker::Number.decimal(l_digits: 2))
+  instrument = Instrument.new(name: Faker::Music.instrument, details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.save
 end
