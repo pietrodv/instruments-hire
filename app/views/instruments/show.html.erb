@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= photo_or_fallback(@instrument) %>');">
+<div class="product-banner" style="background-image: url('<%= photo_or_fallback(@instrument) %>');">
   <div class="d-flex justify-content-between">
     <div>
       <%= link_to root_path, class: 'btn btn-secondary back-btn' do %>
@@ -14,52 +14,51 @@
       <% end %>
     </div>
   </div>
-
 </div>
-
-<div class="instrument-details-booking container mt-4">
-  <div class="row mb-4">
-    <div class="details col-sm">
-      <div class="title-user d-flex justify-content-between">
-        <h1 class="header pb-2 border-bottom"><%= @instrument.name%></h1>
-        <div class="d-flex flex-column justify-content-between text-center">
-          <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar ml-0" %>
-          <%= @instrument.user.first_name %>
-        </div>
-      </div>
-      <div class="card-product my-4">
-        <div class="card-product-infos">
-          <div class="d-flex align-items-center">
-            <i class="fas fa-guitar mr-1"></i> <h2>Details</h2>
+<div class="container mt-5">
+  <div class="instrument-details-booking container mt-4">
+    <div class="row mb-4">
+      <div class="details col-sm">
+        <div class="title-user d-flex justify-content-between">
+          <h1 class="header pb-2 border-bottom"><%= @instrument.name%></h1>
+          <div class="d-flex flex-column justify-content-between text-center">
+            <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar ml-0" %>
+            <%= @instrument.user.first_name %>
           </div>
-          <p><%= @instrument.details %></p>
-          <div class="d-flex align-items-center">
-            <i class="fas fa-euro-sign mr-1"></i> <h2>Price per day </h2>
+        </div>
+        <div class="card-product my-4">
+          <div class="card-product-infos">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-guitar mr-1"></i> <h2>Details</h2>
+            </div>
+            <p><%= @instrument.details %></p>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-euro-sign mr-1"></i> <h2>Price per day </h2>
+            </div>
+            <p><%= @instrument.price_per_day %>€</p>
           </div>
+        </div>
+        <div class="booking col-sm bg-white sticky-top">
+          <div class="d-flex justify-content-center pb-2 border-bottom">
+            <h1 class="header mb-0 ">Like it? Rent it 😎</h1>
+          </div>
+          <%= simple_form_for [@instrument, @booking] do |f| %>
 
-          <p><%= @instrument.price_per_day %>€</p>
+            <div class="form_inputs my-4 mb-5">
+              <%= f.input :start_date, label: 'From:' %>
+              <%= f.input :end_date , label: 'To:' %>
+            </div>
+
+            <div class="form_actions btn btn-info btn-lg btn-block mb-4">
+              <%= f.button :submit, 'Rent this instrument' %>
+            </div>
+          <% end %>
         </div>
       </div>
-    </div>
-
-    <div class="booking col-sm bg-white sticky-top">
-      <div class="d-flex justify-content-center pb-2 border-bottom">
-        <h1 class="header mb-0 ">Like it? Rent it 😎</h1>
-      </div>
-      <%= simple_form_for [@instrument, @booking] do |f| %>
-
-        <div class="form_inputs my-4 mb-5">
-          <%= f.input :start_date, label: 'From:' %>
-          <%= f.input :end_date , label: 'To:' %>
-        </div>
-
-        <div class="form_actions btn btn-info btn-lg btn-block mb-4">
-          <%= f.button :submit, 'Rent this instrument' %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
+
 
 
 
