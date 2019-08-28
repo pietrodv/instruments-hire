@@ -24,6 +24,10 @@ class InstrumentPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  def search?
+    true
+  end
+
   private
 
   def user_is_owner?
