@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   #   resources :instruments, only: [:new, :create, :edit, :update]
   # end
   resources :instruments, except: :index do
+    resources :bookings, only: [:create]
     collection do
       get :mine
     end
   end
+
 end
