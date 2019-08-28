@@ -6,21 +6,26 @@
   </div>
 </div>
 
-<div class="instrument-details-booking container mt-3">
+<div class="instrument-details-booking container mt-4">
   <div class="row">
     <div class="details col-sm">
       <div class="title-user d-flex justify-content-between">
         <h1 class="header pb-2 border-bottom"><%= @instrument.name%></h1>
         <div class="d-flex flex-column justify-content-between text-center">
-          <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar" %>
+          <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar ml-0" %>
           <%= @instrument.user.first_name %>
         </div>
       </div>
       <div class="card-product my-4">
         <div class="card-product-infos">
-          <h2>Details</h2>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-guitar mr-1"></i> <h2>Details</h2>
+          </div>
           <p><%= @instrument.details %></p>
-          <h2>Price per day: </h2>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-euro-sign mr-1"></i> <h2>Price per day </h2>
+          </div>
+
           <p><%= @instrument.price_per_day %>€</p>
         </div>
       </div>
