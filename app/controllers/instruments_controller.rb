@@ -1,7 +1,7 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
-  skip_after_action :verify_authorized, only: [:mine]  
+  skip_after_action :verify_authorized, only: [:mine]
 
   def index
     @instruments = policy_scope(Instrument).order(created_at: :DESC)
@@ -13,6 +13,7 @@ class InstrumentsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
