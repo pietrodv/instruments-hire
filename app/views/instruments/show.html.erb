@@ -38,22 +38,22 @@
             <p><%= @instrument.price_per_day %>€</p>
           </div>
         </div>
-        <div class="booking col-sm bg-white sticky-top">
-          <div class="d-flex justify-content-center pb-2 border-bottom">
-            <h1 class="header mb-0 ">Like it? Rent it 😎</h1>
-          </div>
-          <%= simple_form_for [@instrument, @booking] do |f| %>
-
-            <div class="form_inputs my-4 mb-5">
-              <%= f.input :start_date, label: 'From:' %>
-              <%= f.input :end_date , label: 'To:' %>
-            </div>
-
-            <div class="form_actions btn btn-info btn-lg btn-block mb-4">
-              <%= f.button :submit, 'Rent this instrument' %>
-            </div>
-          <% end %>
+      </div>
+      <div class="booking col-sm bg-white sticky-top">
+        <div class="d-flex justify-content-center pb-2 border-bottom">
+          <h1 class="header mb-0 ">Like it? Rent it 😎</h1>
         </div>
+        <%= simple_form_for [@instrument, @booking] do |f| %>
+
+          <div class="form_inputs my-4 mb-5">
+            <%= f.input :start_date, label: 'From:' %>
+            <%= f.input :end_date , label: 'To:' %>
+          </div>
+
+          <div class="form_actions btn btn-info btn-lg btn-block mb-4">
+            <%= f.button :submit, 'Rent this instrument' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
