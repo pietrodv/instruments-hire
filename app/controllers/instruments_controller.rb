@@ -9,7 +9,7 @@ class InstrumentsController < ApplicationController
 
   def mine
     @instruments = Instrument.where(user: current_user)
-    render :index
+    render :mine
   end
 
   def show
