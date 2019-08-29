@@ -4,11 +4,9 @@
 
 <%= render "/shared/banner" %>
 
-
-
 <% @categories.each do |categ| %>
-  <% if ["Electric Guitar", "Acoustic Guitar", "Drums", "other"].include? categ.name %>
-    <h1><%= categ.name %></h1>
+
+    <h1><%= categ.name %><span class="ml-3"><%= link_to 'see more', category_path(categ), class: "btn btn-danger" %></span></h1>
     <div class="container mt-5">
     <!--   <h1 class="header">Find your next instrument</h1>
      -->  <% if @instruments.empty? %>
@@ -33,9 +31,8 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= link_to 'see more', category_path(categ), class: "btn btn-danger" %>
       </div>
     </div>
-  <% end %>
+
 <% end %>
 
