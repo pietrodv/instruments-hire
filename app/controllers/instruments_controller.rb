@@ -3,8 +3,11 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
   skip_after_action :verify_authorized, only: [:mine]
 
+
+
   def index
     @instruments = policy_scope(Instrument).order(created_at: :DESC)
+    @categories = Category.all.order(:name)
   end
 
   def mine
@@ -54,6 +57,7 @@ class InstrumentsController < ApplicationController
   end
 
   def search
+    @categories = Category.all.order(:name)
     @instruments = policy_scope(Instrument).where('lower(name) LIKE ?', "%#{params[:query]}%").order(created_at: :DESC)
     render :index
   end
@@ -61,7 +65,7 @@ class InstrumentsController < ApplicationController
   private
 
   def instrument_params
-    params.require(:instrument).permit(:name, :details, :photo, :price_per_day, :user)
+    params.require(:instrument).permit(:name, :details, :photo, :price_per_day, :user, :category_id)
   end
 
   def set_instrument

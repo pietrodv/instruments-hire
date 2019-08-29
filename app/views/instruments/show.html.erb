@@ -21,7 +21,7 @@
     <div class="row mb-4">
       <div class="details col-sm">
         <div class="title-user d-flex justify-content-between">
-          <h1 class="header pb-2 border-bottom"><%= @instrument.name%></h1>
+          <h1 class="header pb-2 border-bottom"><%= @instrument.name%> (<%= @instrument.category.name %>)</h1>
           <div class="d-flex flex-column justify-content-between text-center">
             <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar ml-0" %>
             <%= @instrument.user.first_name %>
@@ -48,26 +48,7 @@
           ></div>
       </div>
       <div class="booking col-sm">
-        <div class="bg-white" style="position: sticky; top: 70px;">
-          <div class="d-flex justify-content-center pb-2 border-bottom">
-            <h1 class="header mb-0 pt-3">Like it? Rent it 😎</h1>
-          </div>
-          <div class="px-2 pb-2">
-            <%= simple_form_for [@instrument, @booking] do |f| %>
-
-              <div class="form_inputs my-4 mb-5">
-                <%= f.input :start_date, label: 'From:' %>
-                <%= f.input :end_date , label: 'To:' %>
-              </div>
-
-              <div class="form_actions mb-4 px-4">
-                <%= f.button :submit, 'Rent this instrument', class:"btn btn-info btn-block" %>
-              </div>
-            <% end %>
-          </div>
-
-        </div>
-
+        <%= render "shared/booking-form" %>
       </div>
     </div>
     <h5>More from <%= @instrument.user.first_name %>:</h5>
