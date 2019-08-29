@@ -55,7 +55,7 @@
 
     <h5>More from <%= @instrument.user.first_name %>:</h5>
     <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" >
-      <% instruments = @instrument.user.instruments %>
+      <% instruments = Instrument.where(user: @instrument.user) %>
       <div class="carousel-inner">
         <!-- <img src="https://www.uncommongoods.com/images/items/49100/49180_3_640px.jpg" alt=""> -->
         <% instruments.each_slice(3).with_index do |instruments_group, index| %>
