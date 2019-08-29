@@ -20,7 +20,7 @@
     <div class="row mb-4">
       <div class="details col-sm">
         <div class="title-user d-flex justify-content-between">
-          <h1 class="header pb-2 border-bottom"><%= @instrument.name%></h1>
+          <h1 class="header pb-2 border-bottom"><%= @instrument.name%> (<%= @instrument.category.name %>)</h1>
           <div class="d-flex flex-column justify-content-between text-center">
             <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar ml-0" %>
             <%= @instrument.user.first_name %>
