@@ -12,5 +12,6 @@ Rails.application.routes.draw do
       get :mine
     end
   end
-
+  resources :categories, only: [:index]
+  get 'instruments/categories/:id', to: 'categories#show', as: :category
 end
