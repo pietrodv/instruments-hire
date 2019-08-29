@@ -7,11 +7,15 @@ Rails.application.routes.draw do
   #   resources :instruments, only: [:new, :create, :edit, :update]
   # end
   resources :instruments, except: :index do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:new, :create]
     collection do
       get :mine
     end
   end
+
   resources :categories, only: [:index]
   get 'instruments/categories/:id', to: 'categories#show', as: :category
+
+
+  get 'users/bookings', to: "bookings#index", as: :my_bookings
 end
