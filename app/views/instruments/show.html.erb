@@ -1,3 +1,4 @@
+<% instruments = @instrument.user.instruments %>
 <div class="product-banner" style="background-image: url('<%= photo_or_fallback(@instrument) %>');">
   <div class="d-flex justify-content-between">
     <div>
@@ -69,11 +70,42 @@
 
       </div>
     </div>
+    <h5>More from <%= @instrument.user.first_name %>:</h5>
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" >
+
+      <div class="carousel-inner">
+        <% instruments.each_slice(3).with_index do |instruments_group, index| %>
+
+          <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+
+              <div class="row">
+                <% instruments_group.each do |instrument| %>
+                  <div class="col-md-4 ">
+                    <%= link_to instrument_path(instrument) do %>
+                      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= photo_or_fallback(instrument) %>')">
+                        <%= instrument.name %>
+                        <div class="price" style="font-size: 18px;">
+                          <i class="fas fa-euro-sign mr-1"></i> <%= instrument.price_per_day %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+
+            <% instrument = instruments_group.first %>
+          <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev" style="background-color: lightgrey; width: 40px;">
+        <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+        <!-- <span class="sr-only">Previous</span> -->
+      </a>
+      <a class="carousel-control-next" href="#multi-item-example" role="button" data-slide="next" style="background-color: lightgrey; width: 40px;">
+        <div class="carousel-control-next-icon" aria-hidden="true"></div>
+        <!-- <span class="sr-only">Next</span> -->
+      </a>
+      </div>
+    </div> 
   </div>
-
-
-
-
-
-
-
+</div>
