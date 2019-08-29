@@ -57,6 +57,7 @@ class InstrumentsController < ApplicationController
   end
 
   def search
+    @categories = Category.all.order(:name)
     @instruments = policy_scope(Instrument).where('lower(name) LIKE ?', "%#{params[:query]}%").order(created_at: :DESC)
     render :index
   end
