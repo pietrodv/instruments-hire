@@ -11,19 +11,18 @@ gem 'devise'
 gem 'faker'
 gem 'pundit'
 gem 'geocoder'
-
+# gem 'bootstrap-datepicker-rails'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-
-gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'date_validator', '~> 0.9.0'
+# gem 'simple-form-datepicker', '~> 0.1.3'
+# gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
-
 
 group :development do
   gem 'web-console', '>= 3.3.0'
