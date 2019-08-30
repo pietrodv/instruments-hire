@@ -28,7 +28,7 @@
                   <div class="row">
                     <% instruments_group.each do |instrument| %>
                       <div class="col-md-4 ">
-                        <%= link_to instrument_path(instrument) do %>
+                        <%= link_to instrument_path(instrument), :class => "text-decoration-none" do %>
                           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= photo_or_fallback(instrument) %>')">
                             <%= instrument.name %>
                             <div class="price" style="font-size: 18px;">
