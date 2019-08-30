@@ -6,13 +6,16 @@
     <%= simple_form_for [@instrument, @booking] do |f| %>
 
       <div class="form_inputs my-4 mb-5">
-        <%= f.input :start_date, label: 'From:', as: :string, required: true, input_html: { id: "range_start" } %>
-        <%= f.input :end_date, label: 'To:', as: :string, required: true, input_html: { id: "range_end" } %>
+        <%= f.input :start_date, label: 'From:', as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, label: 'To:', as: :string, required: true, input_html: {class: "datepicker"} %>
       </div>
 
-      <div class="button-container-2">
-        <span class="mas">Rent</span>
-        <button type="submit" name="Hover">Rent</button>
+      <div class="form_actions mb-4 px-4">
+        <% if @instrument.bookings.empty? %>
+          <%= f.button :submit, "Rent for #{@instrument.price_per_day} € / day", class:"btn btn-info btn-block" %>
+        <% else %>
+          <%= f.button :submit, "Currently unavailable", class:"btn btn-info btn-block", :disabled => true %>
+        <% end %>
       </div>
     <% end %>
   </div>
