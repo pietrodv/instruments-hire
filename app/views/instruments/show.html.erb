@@ -61,7 +61,7 @@
     </div>
 
     <h5>More from <%= @instrument.user.first_name %>:</h5>
-    <div id="multi-item-example" class="carousel carousel-multi-item" data-ride="carousel" >
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" >
       <% instruments = Instrument.where(user: @instrument.user) %>
       <div class="carousel-inner" >
         <% instruments.each_slice(3).with_index do |instruments_group, index| %>
