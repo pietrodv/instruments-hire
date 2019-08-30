@@ -24,6 +24,7 @@ gem 'date_validator', '~> 0.9.0'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 gem 'pg_search'
+gem 'music_faker', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

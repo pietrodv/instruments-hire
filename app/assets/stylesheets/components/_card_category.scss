@@ -13,6 +13,11 @@
   border-radius: 8px;
   box-shadow: 20px 20px 20px rgba(0,0,0,0.2);
   position: relative;
+  text-align: center;
+  padding: 0 10px;
+  .a:hover {
+    text-decoration: none;
+  }
 }
 
 .card-category:hover {
