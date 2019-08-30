@@ -1,7 +1,7 @@
 
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-11 col-sm-12 col-md-8 col-lg-6 col-xl-5 bg-white">
+    <div class="col-11 col-sm-12 col-md-8 col-lg-6 col-xl-5 bg-white" style="padding-bottom: 20px;">
       <h2 class="mt-3 mb-3 text-center">Rent your instrument</h2>
       <%= simple_form_for(@instrument) do |f| %>
         <div class="form-inputs">
@@ -15,9 +15,10 @@
           <%= f.input :photo_cache, as: :hidden%>
         </div>
 
-        <div class="my-3 ">
-          <%= f.button :submit, class:"btn btn-outline-success", value:"Add your instrument" %>
-        </div>
+        <div class="button-container-2" style="margin-left: 0">
+              <span class="mas">Create</span>
+              <button type="submit" name="Hover">Create</button>
+            </div>
       <% end %>
     </div>
   </div>
