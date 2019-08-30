@@ -6,12 +6,12 @@
     <%= simple_form_for [@instrument, @booking] do |f| %>
 
       <div class="form_inputs my-4 mb-5">
-        <%= f.input :start_date, label: 'From:' %>
-        <%= f.input :end_date, label: 'To:' %>
+        <%= f.input :start_date, label: 'From:', as: :string, required: true, input_html: { id: "range_start" } %>
+        <%= f.input :end_date, label: 'To:', as: :string, required: true, input_html: { id: "range_end" } %>
       </div>
 
       <div class="form_actions mb-4 px-4">
-        <%= f.button :submit, "Rent for #{@instrument.price_per_day} €", class:"btn btn-info btn-block" %>
+        <%= f.button :submit, "Rent for #{@instrument.price_per_day} € / day", class:"btn btn-info btn-block" %>
       </div>
     <% end %>
   </div>

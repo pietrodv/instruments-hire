@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   get 'instruments/categories/:id', to: 'categories#show', as: :category
 
-
-  get 'users/bookings', to: "bookings#index", as: :my_bookings
+  get 'bookings', to: "bookings#index", as: :my_bookings
+  get 'bookings/:id/edit', to: "bookings#edit", as: :edit_booking
+  patch 'bookings/:id', to: "bookings#update", as: :update_booking
 end
