@@ -39,7 +39,6 @@
 
   <h2 class="mt-4">Cancel my account</h2>
 
-  <p>Are you sure you would like to cancel your account? We will be sorry to see you go 🙁. <br><br> <%= link_to "Yes, cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger" %></p>
+  <p>Are you sure you would like to cancel your account? We will be sorry to see you go 🙁. <br><br> <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn delaccount" %></p>
 
-  <%= link_to "Back", :back, class:"btn btn-outline-primary" %>
 </div>
