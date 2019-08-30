@@ -14,6 +14,7 @@ class InstrumentsController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @user = @instrument.user
     @address = @user.geocoded?
     if @address

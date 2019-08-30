@@ -47,6 +47,14 @@
           data-markers="<%= @marker.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
+
+        <!-- Rating -->
+        <%#= simple_form_for [@instrument, @review] do |f| %>
+          <%#= f.input :content %>
+          <%#= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+          <%#= f.submit "Send your review" %>
+        <%# end %>
+
       </div>
       <div class="booking col-sm">
         <%= render "shared/booking-form" %>
@@ -94,8 +102,8 @@
         <div class="carousel-control-next-icon" aria-hidden="true"></div>
         <!-- <span class="sr-only">Next</span> -->
       </a>
-      
+
     </div>
 
-  </div> 
+  </div>
 </div>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # end
   resources :instruments, except: :index do
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: :create
     collection do
       get :mine
     end
