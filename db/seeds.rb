@@ -8,6 +8,7 @@
 require 'faker'
 require 'music_faker'
 
+Booking.destroy_all
 Instrument.destroy_all
 Category.destroy_all
 User.destroy_all
