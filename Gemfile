@@ -23,6 +23,7 @@ gem 'date_validator', '~> 0.9.0'
 # gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
