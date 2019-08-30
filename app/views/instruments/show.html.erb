@@ -61,19 +61,15 @@
     </div>
 
     <h5>More from <%= @instrument.user.first_name %>:</h5>
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" >
+    <div id="multi-item-example" class="carousel carousel-multi-item" data-ride="carousel" >
       <% instruments = Instrument.where(user: @instrument.user) %>
-      <div class="carousel-inner">
-        <!-- <img src="https://www.uncommongoods.com/images/items/49100/49180_3_640px.jpg" alt=""> -->
+      <div class="carousel-inner" >
         <% instruments.each_slice(3).with_index do |instruments_group, index| %>
-          <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+          <div class="carousel-item <%= index.zero? ? 'active' : '' %>" >
 
               <div class="row">
-
-
                 <% instruments_group.each do |instrument| %>
                   <div class="col-md-4 ">
-
                     <%= link_to instrument_path(instrument) do %>
                       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= photo_or_fallback(instrument) %>')">
                         <%= instrument.name %>
@@ -82,15 +78,12 @@
                         </div>
                       </div>
                     <% end %>
-
                   </div>
                 <% end %>
-
               </div>
 
           </div>
         <% end %>
-
       </div>
 
       <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev" style="background-color: lightgrey; width: 40px;">
