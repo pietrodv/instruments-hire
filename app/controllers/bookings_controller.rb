@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :fetch_instrument, only: :create
+  before_action :fetch_booking, only: [:edit, :update]
 
   def index
     @bookings = policy_scope(Booking).order(:created_at).where(user_id: current_user.id)
@@ -22,10 +23,27 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @booking
+  end
+
+  def update
+    authorize @booking
+    if @booking.update(status: "true")
+      redirect_to "/instruments/mine", notice: 'Booking was accepted.'
+    # else
+    #   render :edit
+    end
+  end
+
   private
 
   def fetch_instrument
     @instrument = Instrument.find(params[:instrument_id])
+  end
+
+  def fetch_booking
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params

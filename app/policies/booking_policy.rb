@@ -13,6 +13,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record.instrument.user == user
+  end
+
   private
 
   def user_is_owner?
