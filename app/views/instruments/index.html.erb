@@ -18,7 +18,7 @@
       <!-- if category has instruments -->
       <% if @instruments[categ.id].present? %>
         <br>
-        <h1><%= categ.name %><span class="ml-3"><%= link_to 'see more', category_path(categ), class: "btn btn-danger" %></span></h1>
+        <h1 id="categ_name"><%= categ.name %><span class="ml-1"><%= link_to 'see more -->', category_path(categ), class: "btn see_more" %></span></h1>
         <br>
         <div id="multi-item-example-<%= n += 1 %>" class="carousel slide carousel-multi-item" data-ride="carousel" >
           <div class="carousel-inner">

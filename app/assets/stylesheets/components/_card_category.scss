@@ -15,12 +15,16 @@
   position: relative;
 }
 
+.card-category:hover {
+    opacity: .8;
+    text-decoration: none;
+}
+
 .card-category .price {
   position: absolute;
   right: 16px;
   bottom: 16px;
 }
-
 
 #categ_name:hover{
   .see_more{
