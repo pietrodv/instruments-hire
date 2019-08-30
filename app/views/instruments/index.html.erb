@@ -4,8 +4,6 @@
 
 <%= render "/shared/banner" %>
 
-
-
 <div class="container">
   <% if @instruments.empty? %>
 
@@ -32,6 +30,7 @@
                   <div class="price" style="font-size: 18px;">
                     <i class="fas fa-euro-sign mr-1"></i> <%= instrument.price_per_day %>
                   </div>
+
                 </div>
               <% end %>
             <% end %>

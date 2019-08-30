@@ -1,8 +1,4 @@
 import flatpickr from "flatpickr"
-import "flatpickr/dist/flatpickr.min.css"
-import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
+import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
-flatpickr("#range_start", {
-  altInput: true,
-  plugins: [new rangePlugin({ input: "#range_end"})]
-})
+flatpickr(".datepicker", {})
