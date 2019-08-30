@@ -31,7 +31,7 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item mt-1">
-          <%= link_to "My bookings", "#", class: "tabs-underlined nav-link" %>
+          <%= link_to "My bookings", "/bookings", class: "tabs-underlined nav-link" %>
           <%= link_to " My profile", edit_user_registration_path , class: "tabs-underlined nav-link d-block d-sm-none" %>
           <%= link_to "Add new instrument", new_instrument_path, class: "tabs-underlined nav-link d-block d-sm-none" %>
           <%= link_to "My instruments", mine_instruments_path, class: "tabs-underlined nav-link d-block d-sm-none" %>
