@@ -45,7 +45,7 @@
             <% instrument.bookings.each do |booking| %>
               <tr>
                 <th scope="row"><%= i %></th>
-                <td><%= booking.instrument.name %></td>
+                <td><%= link_to booking.instrument.name, instrument_path(booking.instrument), {:style=>'color:black;'} %></td>
                 <td><%= booking.user.first_name %> <%= booking.user.last_name %></td>
                 <td><%= booking.start_date %></td>
                 <td><%= booking.end_date %></td>
