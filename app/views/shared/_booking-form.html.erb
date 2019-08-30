@@ -10,9 +10,11 @@
         <%= f.input :end_date, label: 'To:', as: :string, required: true, input_html: { id: "range_end" } %>
       </div>
 
-      <div class="form_actions mb-4 px-4">
-        <%= f.button :submit, "Rent for #{@instrument.price_per_day} € / day", class:"btn btn-info btn-block" %>
+      <div class="button-container-2">
+        <span class="mas">Rent</span>
+        <button type="submit" name="Hover">Rent</button>
       </div>
     <% end %>
   </div>
 </div>
+
