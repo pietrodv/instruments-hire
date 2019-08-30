@@ -4,40 +4,46 @@
 
 <%= render "/shared/banner" %>
 
-<% @categories.each do |categ| %>
+<div class="container">
+  <% if @instruments.empty? %>
 
-    <h1><%= categ.name %><span class="ml-3"><%= link_to 'see more', category_path(categ), class: "btn btn-danger" %></span></h1>
-    <div class="container mt-5">
-    <!--   <h1 class="header">Find your next instrument</h1>
-     -->  <% if @instruments.empty? %>
-        <div class="flash flash-danger fade show mt-3">
-        <span><strong>Oops!</strong> 😱 no results found. Try another instrument.</span>
-        <!-- <a data-dismiss="alert" aria-label="Close">
-          <i class="fas fa-times"></i>
-        </a> -->
-      </div>
-      <% else %>
-        <div class="cards mb-5">
-        <% @instruments.each do |instrument| %>
-          <% if instrument.category.name == categ.name %>
-            <%= link_to instrument_path(instrument) do %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= photo_or_fallback(instrument) %>')">
-                <%= instrument.name %>
-                <div class="price" style="font-size: 18px;">
-                  <% if instrument.bookings.empty? %>
-                    <i class="far fa-calendar-check pr-3"></i>
-                  <% else %>
-                    <i class="far fa-calendar-times pr-3"></i>
-                  <% end %>
-                  <i class="fas fa-euro-sign mr-1"></i> <%= instrument.price_per_day %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-      </div>
+    <div class="flash flash-danger fade show mt-3">
+      <span><strong>Oops!</strong> 😱 no results found. Try another instrument.</span>
     </div>
 
-<% end %>
+  <% else %>
+
+    <% @categories.each do |categ| %>
+
+      <!-- if category has instruments -->
+      <% if @instruments[categ.id].present? %>
+
+        <div class="mt-5">
+        <!--   <h1 class="header">Find your next instrument</h1>
+         -->
+          <h1><%= categ.name %><span class="ml-3"><%= link_to 'see more', category_path(categ), class: "btn btn-danger" %></span></h1>
+            <div class="cards mb-5">
+            <% @instruments[categ.id].each do |instrument| %>
+              <%= link_to instrument_path(instrument) do %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= photo_or_fallback(instrument) %>')">
+                  <%= instrument.name %>
+                  <div class="price" style="font-size: 18px;">
+                    <i class="fas fa-euro-sign mr-1"></i> <%= instrument.price_per_day %>
+                  </div>
+
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- else -->
+      <!-- does nothing -->
+
+    <% end %>
+
+  <% end %>
+</div>
+
 

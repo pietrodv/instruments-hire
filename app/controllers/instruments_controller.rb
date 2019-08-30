@@ -4,7 +4,12 @@ class InstrumentsController < ApplicationController
   skip_after_action :verify_authorized, only: [:mine]
 
   def index
-    @instruments = policy_scope(Instrument).order(created_at: :DESC)
+    @instruments = policy_scope(Instrument).order(created_at: :DESC).group_by(&:category_id)
+    # @instruments = {
+    #   1: [array of instruments in category_id 1],
+    #   2: [array of instruments in category_id 2]
+    #   ...
+    # }
     @categories = Category.all.order(:name)
   end
 
@@ -56,7 +61,7 @@ class InstrumentsController < ApplicationController
 
   def search
     @categories = Category.all.order(:name)
-    @instruments = policy_scope(Instrument).where('lower(name) LIKE ?', "%#{params[:query]}%").order(created_at: :DESC)
+    @instruments = policy_scope(Instrument).global_search(params[:query]).order(created_at: :DESC).group_by(&:category_id)
     render :index
   end
 
