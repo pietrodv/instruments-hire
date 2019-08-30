@@ -8,6 +8,7 @@
       <%= f.input :details %>
       <%= f.input :price_per_day %>
       <%= f.input :photo %>
+      <%= f.association :category, collection: Category.order(:name)%>
       <%= f.input :photo_cache, as: :hidden %>
     </div>
 

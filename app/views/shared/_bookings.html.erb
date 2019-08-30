@@ -1,0 +1,31 @@
+<h1 class="pb-2">My Bookings</h1>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Instrument</th>
+      <th scope="col">Owner</th>
+      <th scope="col">From</th>
+      <th scope="col">To</th>
+      <th scope="col">Total price</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 1 %>
+    <% @bookings.each do |booking| %>
+    <tr>
+      <th scope="row"><%= i %></th>
+      <td><%= booking.instrument.name %></td>
+      <td><%= booking.instrument.user.first_name %> <%= booking.instrument.user.last_name %></td>
+      <td><%= booking.start_date %></td>
+      <td><%= booking.end_date %></td>
+      <td><%= (booking.instrument.price_per_day * (booking.end_date - booking.start_date + 1).round).round(2) %> €</td>
+      <td><%= booking.status ? "Accepted" : "Waiting for owner confirmation" %></td>
+    </tr>
+    <% i += 1 %>
+    <% end %>
+  </tbody>
+</table>

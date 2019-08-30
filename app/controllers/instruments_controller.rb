@@ -1,10 +1,12 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
+  before_action :check_availability, only: :show
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
   skip_after_action :verify_authorized, only: [:mine]
 
   def index
     @instruments = policy_scope(Instrument).order(created_at: :DESC)
+    @categories = Category.all.order(:name)
   end
 
   def mine
@@ -54,14 +56,23 @@ class InstrumentsController < ApplicationController
   end
 
   def search
+    @categories = Category.all.order(:name)
     @instruments = policy_scope(Instrument).where('lower(name) LIKE ?', "%#{params[:query]}%").order(created_at: :DESC)
     render :index
   end
 
   private
 
+  def check_availability
+    if @instrument.bookings.empty?
+      @instrument.update(availability: true)
+    elsif @instrument.bookings.all? { |booking| booking.end_date > Date.today }
+      @instrument.update(availability: false)
+    end
+  end
+
   def instrument_params
-    params.require(:instrument).permit(:name, :details, :photo, :price_per_day, :user)
+    params.require(:instrument).permit(:name, :details, :photo, :price_per_day, :user, :category_id, :availability, :booking_id)
   end
 
   def set_instrument

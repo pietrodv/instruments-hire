@@ -7,10 +7,16 @@ Rails.application.routes.draw do
   #   resources :instruments, only: [:new, :create, :edit, :update]
   # end
   resources :instruments, except: :index do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:new, :create]
     collection do
       get :mine
     end
   end
 
+  resources :categories, only: [:index]
+  get 'instruments/categories/:id', to: 'categories#show', as: :category
+
+  get 'bookings', to: "bookings#index", as: :my_bookings
+  get 'bookings/:id/edit', to: "bookings#edit", as: :edit_booking
+  patch 'bookings/:id', to: "bookings#update", as: :update_booking
 end

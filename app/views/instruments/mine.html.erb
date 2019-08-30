@@ -20,8 +20,50 @@
         </div>
       <% end %>
     <% end %>
+    </div>
+
+    <h1 class="pb-2">Instruments booked</h1>
+
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Instrument</th>
+          <th scope="col">Renter</th>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
+          <th scope="col">Total price</th>
+          <th scope="col">Status</th>
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% i = 1 %>
+        <% @instruments.each do |instrument| %>
+          <% if !instrument.bookings.empty? %>
+            <% instrument.bookings.each do |booking| %>
+              <tr>
+                <th scope="row"><%= i %></th>
+                <td><%= booking.instrument.name %></td>
+                <td><%= booking.user.first_name %> <%= booking.user.last_name %></td>
+                <td><%= booking.start_date %></td>
+                <td><%= booking.end_date %></td>
+                <td><%= (booking.instrument.price_per_day * (booking.end_date - booking.start_date + 1).round).round(2) %> €</td>
+                <td><%= booking.status ? "Accepted" : "Waiting for your confirmation" %></td>
+                <td> <% if booking.status %>
+                  <%=  %>
+                  <% else %>
+                  <%= link_to "Accept booking", update_booking_path(booking.id), :method=> :patch %>
+                  <% end %>
+                  </td>
+              </tr>
+              <% i += 1 %>
+              <% end %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
-  </div>
 </div>
 
-<!-- When our instrument has a photo, we can use <%#= cl_image_path instrument.photo %> -->
