@@ -11,10 +11,11 @@
       <%= f.input :photo_cache, as: :hidden %>
     </div>
 
-    <div>
-      <%= f.button :submit, class:"btn btn-outline-success mb-2" %>
+    <div class="button-container-2" style="margin-left: 0">
+      <span class="mas">Update</span>
+      <button type="submit" name="Hover">Update</button>
     </div>
   <% end %>
 
-  <%= link_to 'Go back', instrument_path %>
+  <div class="blue" style="padding-top: 25px"><%= link_to '<< Back', instrument_path %></div>
 </div>

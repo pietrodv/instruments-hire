@@ -10,11 +10,22 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class=" navbar-nav mr-auto">
+      <!-- <li>
+        <div class="button-container-2">
+          <span class="mas">MASK2</span>
+          <button type="button" name="Hover">MASK2</button>
+        </div>
+      </li> -->
       <li>
         <div class="search-form">
           <form class="form-inline mt-1 mr-2" action="/instruments/search">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" aria-label="Search">
+
+            <div class="button-container-2">
+              <span class="mas">Search</span>
+              <button type="submit" name="Hover">Search</button>
+            </div>
+
           </form>
         </div>
       </li>
@@ -32,17 +43,20 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to " My profile", edit_user_registration_path , class: "dropdown-item" %>
             <%= link_to "Add new instrument", new_instrument_path, class: "dropdown-item" %>
-            <%= link_to "My instruments", mine_instruments_path, class: "dropdown-item" %>
+            <%= link_to "My instruments", mine_instruments_path, class: "dropdown-item red" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
         <% else %>
-          <li class="nav-item mt-1">
-            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary" %>
-          </li>
+          <%= link_to new_user_session_path do %>
+
+          <li class="button-container-2 mt-1">
+            <span class="mas">Login</span>
+            <button type="submit" name="Hover" action="/users/sign_in">Login</button>
+            </li>
+          <% end %>
       <% end %>
     </ul>
   </div>
 </div>
-
 

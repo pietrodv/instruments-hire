@@ -7,10 +7,10 @@
     </div>
     <div>
       <% if policy(@instrument).edit? %>
-        <%= link_to "Update", edit_instrument_path(@instrument), class: "btn btn-warning" %>
+        <%= link_to "Update", edit_instrument_path(@instrument), class: "btn btn-secondary back-btn" %>
       <% end %>
       <% if policy(@instrument).destroy? %>
-          <%= link_to "Destroy", instrument_path(@instrument), method: :delete, class: "btn btn-danger"%>
+          <%= link_to "Remove", instrument_path(@instrument), method: :delete, class: "btn btn-secondary back-btn"%>
       <% end %>
     </div>
   </div>
@@ -59,8 +59,9 @@
                 <%= f.input :end_date , label: 'To:' %>
               </div>
 
-              <div class="form_actions mb-4 px-4">
-                <%= f.button :submit, 'Rent this instrument', class:"btn btn-info btn-block" %>
+              <div class="button-container-2">
+                <span class="mas">Rent</span>
+                <button type="submit" name="Hover">Rent</button>
               </div>
             <% end %>
           </div>
