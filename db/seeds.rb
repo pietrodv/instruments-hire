@@ -27,7 +27,7 @@ User.create!(first_name: 'John', last_name: 'Smith', email: 'johnsmith@lewagon.c
 User.create!(first_name: 'Anna', last_name: 'Smith', email: 'annasmith@lewagon.com', password: 'abcd123')
 
 p 'Users created'
-a = Category.new(name: 'others')
+a = Category.new(name: '...others')
 a.save
 b = Category.new(name: 'Electric Guitars')
 b.save
@@ -47,81 +47,81 @@ i = Category.new(name: 'Mics')
 i.save
 j = Category.new(name: 'Strings')
 j.save
-k = Category.new(name: 'Percussion')
+k = Category.new(name: 'Percussions')
 k.save
 p 'Category created'
 
 
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = b
   instrument.save
 end
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = c
   instrument.save
 end
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = a
   instrument.save
 end
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = d
   instrument.save
 end
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = e
   instrument.save
 end
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = f
   instrument.save
 end
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = g
   instrument.save
 end
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = h
   instrument.save
 end
 
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = i
   instrument.save
 end
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = j
   instrument.save
 end
-10.times do
+12.times do
   instrument = Instrument.new(name: MusicFaker::Instrument.name.split[0...-1].join(' '), details: Faker::Lorem.paragraphs.join(" "), price_per_day: Faker::Number.decimal(l_digits: 2))
   instrument.user = User.all.sample
   instrument.category = k
