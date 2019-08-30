@@ -1,3 +1,4 @@
+
 .blue {
   color:blue;
 }
@@ -24,7 +25,6 @@ $col) {
  text-align: center;
  font-family: 'Roboto', sans-serif;
  font-size: 34px;
- margin-top: 12vh;
 }
 
 .footer {
@@ -141,5 +141,11 @@ $col) {
 }
 
 a{
-  color:#00ff95;
+  color:#006aff;
+}
+
+.delaccount {
+  color:white;
+  border-color: white;
+  background-color:rgba(240, 52, 52, 1);
 }

@@ -23,7 +23,7 @@
       <div class="details col-sm">
         <div class="title-user d-flex justify-content-between">
           <h1 class="header pb-2 border-bottom"><%= @instrument.name%> (<%= @instrument.category.name %>)</h1>
-          <div class="d-flex flex-column justify-content-between text-center">
+          <div class="d-flex flex-column text-center p-2">
             <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, class: "avatar ml-0" %>
             <%= @instrument.user.first_name %>
           </div>
@@ -47,14 +47,13 @@
           data-markers="<%= @marker.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-
-        <!-- Rating -->
-        <%#= simple_form_for [@instrument, @review] do |f| %>
-          <%#= f.input :content %>
-          <%#= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-          <%#= f.submit "Send your review" %>
-        <%# end %>
-
+        <div class="card-product my-4">
+          <div class="d-flex flex-column text-center p-2 my-2 w-25">
+            <%= cl_image_tag user_photo_or_fallback(@instrument.user), height: 53, id: "icon-descrip", class: "avatar mx-auto" %>
+            <%= @instrument.user.first_name %>
+          </div>
+          <p id="text-descrip", class="w-75 mr-1 "><em><%= @instrument.user.bio %></em></p>
+        </div>
       </div>
       <div class="booking col-sm">
         <%= render "shared/booking-form" %>
